@@ -1,4 +1,5 @@
 #include "chip8.h"
+#include "control.h"
 #include "rom.h"
 
 int main(int argc, char* argv[]) {
@@ -7,6 +8,7 @@ int main(int argc, char* argv[]) {
     init_chip8(&chip);
     load_rom(argv[1], chip.memory);
     for (;;) {
+        process_input();
         update_chip8(&chip);
     }
 
